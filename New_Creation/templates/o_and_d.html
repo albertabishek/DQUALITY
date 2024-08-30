@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}
+Offers and Discount
+{% endblock%}
+
+{% block content %}
+<style>
+   main{
+      color: black;
+   }
+</style>
+     <center>
+      <div class="container" style="margin-top: 20px;" >
+         <form action="/search" method="POST" enctype="multipart/form-data" class="d-flex col-8">
+          <input class="form-control me-2" type="search" placeholder="Search..." name="search" required>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+      <div style="margin-top:10px;" >
+          <a  href="{{url_for('main.offer_adding_page')}}" style="text-decoration: none;"><button class="btn-outline-secondary"style="border-radius: 5px;">➕Add</button></a>
+      </div>
+   </center>
+   <div class="container my-5" style="margin-top: 20px;">
+      <div class="row">
+    
+      {% for offer in offers %}
+      <div class="col-md-4 mb-4">
+         <div class="card">    
+             <ul class="list-group list-group-flush">
+                 <li class="list-group-item">Shop name : {{ offer.Shop_name}}</li>
+                 <li class="list-group-item">Discount : {{ offer.discount}}</li>
+                 <li class="list-group-item">Start : {{ offer.starting_date }} ||  End : {{ offer.ending_date}}</li>
+              </ul>
+              <ul class="list-group list-group-flush" >
+               <div style="display: flex; justify-content: space-between;"> 
+                 <li class="list-group-item btn-outline-success"><a href="{{url_for('main.edit_offer',id=offer.id)}}">Edit</a></li>
+                 <li class="list-group-item btn-outline-danger"><a href="{{url_for('main.delete_offer',id=offer.id)}}">Delete</a></li>
+               </div>
+            </ul>
+         </div>
+     </div>
+      {% endfor %}
+   </div>
+   </div>
+   
+
+{% endblock %}

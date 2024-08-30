@@ -1,0 +1,1 @@
+from .routes import SC_uploaded_file,SC_details,SC_rating_data,SC_Ratings,SC_shop_adding_page,SC_shop_page,SC_shop_template,SC_shop_upload_page,SC_Shops

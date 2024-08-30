@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}
+ Shop Adding Page
+{% endblock %}
+  
+{% block content %}
+  
+<div class="container" style="margin-top: 15%; margin-bottom: 3%;">
+
+     <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <form action="/food_shop_upload_page" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Sname">Food Shop Name :</label>
+                    <input type="text" class="form-control" id="Sname" name="shop_name" >
+
+
+                    <label for="tag1">Food tag :</label>
+                    <input type="text" class="form-control" id="tag1" name="T1" >
+
+
+                    <label for="tag2">Place tag :</label>
+                    <input type="text" class="form-control" id="tag2" name="T2" >
+
+                    <label for="tag3">District tag :</label>
+                    <input type="text" class="form-control" id="tag3" name="T3" >
+
+                    <label for="CF">Contact InFo :</label>
+                    <input type="text" class="form-control" id="CF" name="C_info" >
+
+                    <label for="p_tag">Price :</label>
+                    <input type="number" class="form-control" id="p_tag" name="price" >
+
+
+                    <label for="Quality">Quality :</label>
+                    <input type="text" class="form-control" id="Quality" name="quality" >
+
+
+                    <label for="L_name">Location name :</label>
+                    <input type="text" class="form-control" id="L_name" name="location_name" >
+
+                    <label for="L_link">Location Link :</label>
+                    <input type="text" class="form-control" id="L_link" name="location_link" >
+
+
+                    <label for="file">Image:</label>
+                    <input type="file" class="form-control" id="file" name="file">
+                </div>
+
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+            </form>
+        </div>
+     </div>
+
+</div>
+{% endblock %}

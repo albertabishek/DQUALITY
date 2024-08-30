@@ -1,0 +1,1 @@
+from .routes import TA_uploaded_file,TA_details,TA_rating_data,TA_Ratings,TA_shop_adding_page,TA_shop_page,TA_shop_template,TA_shop_upload_page,TA_Shops

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Page</title>
+   
+</head>
+<!--      background-color: #1E1B32; -->
+<style>
+    
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgb(64,64,64);
+    background: linear-gradient(120deg,  rgba(1,1,1,1) 100% ,rgba(64,64,64,1) 125%);
+
+}
+
+#btn{
+    position: absolute;
+    bottom: 200px;
+}
+
+a{
+    text-decoration: none;
+    
+}
+button{
+   
+    background: rgb(255,0,0);
+    background: linear-gradient(149deg, rgba(255,0,0,1) 15%, rgba(14,0,255,1) 85%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    color: whitesmoke;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 15px;
+    cursor:pointer;
+}
+     
+</style>
+<body>
+    <a href="{{ url_for('main.home_page') }}" id="btn"><button >Get Started</button></a>
+</body>
+</html>

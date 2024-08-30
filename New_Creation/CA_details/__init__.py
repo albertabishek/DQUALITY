@@ -1,0 +1,1 @@
+from .routes import CA_uploaded_file,CA_details,CA_rating_data,CA_Ratings,CA_shop_adding_page,CA_shop_page,CA_shop_template,CA_shop_upload_page,CA_Shops

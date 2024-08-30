@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}
+ Shops template Page
+{% endblock %}
+
+
+{% block content %}
+<style>
+    .V{
+    background-color: #2f3640;
+    color: #f5f6fa;
+    padding: 10px;
+    border: 2px solid #4f4e4e;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px #4a4949;
+    font-family: "Roboto",sans-serif; 
+   }
+    option{
+    background-color: #2f3640;
+    font-weight: 500px;
+    font-family: "Roboto",sans-serif;  
+   }
+   label{
+    color: #5269F0;
+    padding-top: 30px;
+    font-weight:500;
+    font-family:"Roboto",sans-serif;  
+   }
+   
+   .btns {
+    color: #090909;
+    padding:3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 6px #c5c5c5 , 0px -1px 5px #c5c5c5 ;
+  }
+
+  .btns:hover {
+   color: #666;
+   box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 3px #ffffff;
+  }  
+
+</style>
+
+<div style="margin-top: 6rem; margin-bottom: 6rem;">
+<form action="/CA_shop_page" method="POST" enctype="multipart/form-data" style="text-align: center;">
+   
+     
+    <input type="text" value="{{Category}}" name="C1" style="display: none;">
+    <label for="P">Select Place :</label>
+    <select id="P" name="PL1" class="V"> 
+        <option value="Bagayam">Bagayam</option>
+        <option value="New Bustand">New Bustand</option>
+        <option value="Old Bustand">Old Bustand</option>
+    </select> 
+    <br>
+    <label for="D">Select District :</label>
+    <select id="C" name="DI1" class="V"> 
+        <option value="">Select</option>
+        <option value="Vellore">Vellore</option>
+        <option value="Ranipet">Ranipet</option>
+        <option value="Dindigul">Dindigul</option>
+    </select> 
+    
+<div style="padding-top: 20px; text-align: center;">
+    <button class="btns" style="padding: 5px; border-radius: 8px; padding-left: 15px; padding-right: 15px;" type="submit" >Search</button> 
+</div>
+</form>
+</div>
+{% endblock %}

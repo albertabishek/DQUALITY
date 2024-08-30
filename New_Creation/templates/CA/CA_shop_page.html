@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+{% block title %}
+  Shops Page
+{% endblock %}
+
+
+{% block content %}
+<style>
+
+  #image{
+    width: 100%;
+    height:200px;
+    border: 2px solid #c8caca; 
+    margin-top:5%;
+    border-bottom: none;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     
+  }
+
+  .img_contents{
+    background-color: #6F7070;
+    color: aliceblue; 
+    padding: 10px; 
+    height: 50%;
+    width: 100%;
+    text-align: center; 
+    border-radius:8px; 
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border: 5px solid rgb(48, 48, 48);
+    box-shadow: 0px 10px 20px rgb(133, 131, 131);
+  }
+  .row1{
+    display: flex;
+    margin-left: 0px; 
+    justify-content: space-between;
+  }
+
+  .row2{
+    display: flex; 
+    margin-left: 0px; 
+    justify-content: space-between;
+    font-size: 15px;
+  }
+
+  .row3{
+    display: flex; 
+    justify-content: space-between; 
+    padding-top: 5px;
+    font-size: 15px;
+  }
+
+  .sname{
+    font-family:"Roboto" , sans-serif; 
+    font-size: 16px;
+    
+  }
+  i{
+    font-family:"Roboto"; 
+    font-size: 15px;
+  }
+  .quality{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 15px;
+  }
+
+   @media screen and (max-width:380px) 
+   {
+    .row1{
+      font-size: 10px;
+    }
+    .row2{
+      font-size: 10px;
+    }
+    .row3{
+      font-size: 10px;
+    }
+    .sname{
+      font-size: 12px;
+    }
+    i{
+    font-size: 10px;
+    }
+    .quality{
+    font-size: 10px;
+    }
+    #image{
+    width: 100%;
+    height:150px;
+    }
+    #l{
+      font-size: 10px;
+    }
+   }
+  
+
+   @media screen and (min-width:768px) and (max-width:992px) 
+   {
+   .quality{
+    font-size: 14px;
+    }
+   
+   .row2{
+    font-size: 13px;
+   }
+
+   .row3{
+    font-size: 13px;
+   }
+
+   #l{
+    font-size: 13px;
+   }
+    
+  }
+
+  @media screen and (min-width:1200px) 
+  {
+   .row3{
+    font-size: 13px;
+   }
+   #l{
+    font-size: 13px;
+   }
+  }
+   
+   
+</style>
+
+
+<div class="container" >
+<div class="row" >
+
+{% for H_shops in CAD %}
+ {% if H_shops.category == Category %}
+  {% if District %}
+    {% if H_shops.D_tag == District %} 
+        {% if Place == H_shops.P_tag %}
+
+        <div class="col-xs-4 col-sm-12 col-md-6 col-xl-4">
+          <div style="margin: 8px;">
+                <img src="{{ url_for('CA_details.CA_uploaded_file', filename=H_shops.filename)}}" class="img img-thumbnail" id="image" />
+                <div class="img_contents bg-dark" >
+                   <div id="title" class="row1">
+                      <h5 class="sname">Shop Name : {{ H_shops.Shop_name }}</h5>
+                      
+                   </div>
+                <div id="title" class="row2">
+                  {% for rate in rating %}
+                         {% if H_shops.Shop_name == rate.shop_name %}
+                            {% if rate.Average_rating >= 4.5 %}
+                                <p class="quality">Quality : Good  ⭐{{ rate.Average_rating }}</p>
+                            {% elif rate.Average_rating < 4.5 and rate.Average_rating >= 3.5 %}
+                                <p class="quality">Quality : Average  ⭐{{ rate.Average_rating }}</p>
+                            {% else %}
+                                <p class="quality">Quality : Satisfied  ⭐{{ rate.Average_rating }}</p>
+                            {% endif %}
+                         {% endif %}
+                  {% endfor %}
+                      
+                      <details>
+                         <summary id="l">Location</summary>
+                         <p>{{H_shops.location_text}}</p>
+                      </details>
+                </div>
+                   
+                <div class="row3">
+                  <details> 
+                    <summary>Give ratings</summary>
+                      <form action="/CA_ratings" method="POST" enctype="multipart/form-data">
+                        <div class="form-group" >
+                           <input type="text" style="display: none;" value="{{H_shops.Shop_name}}" name="sname">
+                           <input type="range" id="rate"  name="Rating" min="0.5" max="5.5" value="5" oninput="this.nextElementSibling.value = this.value">
+                           <output>5</output>
+                        </div>
+                          <button type="submit" style="color: whitesmoke; background: linear-gradient( hsl(0, 100%, 70%),hsl(313, 100%, 60%));" class="btn">Submit</button> 
+                      </form> 
+                  </details>
+                  <div>
+                    <details>
+                      <summary>Contact InFo</summary>
+                      <h6>{{H_shops.contact_Info}}</h6>
+                    </details>
+                  </div>
+                  <div >
+                    <a href="{{H_shops.location_link}}">🗺️view Location</a>
+                  </div>
+                </div>
+             </div> 
+           </div>
+        </div>
+      
+              {% endif %}
+              {% endif %}
+            {% else %}
+  {% if Place == H_shops.P_tag %}
+
+              
+             <div class="col-xs-4 col-sm-12 col-md-6 col-xl-4">
+              <div style="margin: 8px;">
+                    <img src="{{ url_for('CA_details.CA_uploaded_file', filename=H_shops.filename)}}" class="img img-thumbnail" id="image" />
+                    <div class="img_contents bg-dark" >
+                       <div id="title" class="row1">
+                          <h5 class="sname">Shop Name : {{ H_shops.Shop_name }}</h5>
+                          
+                       </div>
+                    <div id="title" class="row2">
+                      {% for rate in rating %}
+                             {% if H_shops.Shop_name == rate.shop_name %}
+                                {% if rate.Average_rating >= 4.5 %}
+                                    <p class="quality">Quality : Good  ⭐{{ rate.Average_rating }}</p>
+                                {% elif rate.Average_rating < 4.5 and rate.Average_rating >= 3.5 %}
+                                    <p class="quality">Quality : Average  ⭐{{ rate.Average_rating }}</p>
+                                {% else %}
+                                    <p class="quality">Quality : Satisfied  ⭐{{ rate.Average_rating }}</p>
+                                {% endif %}
+                             {% endif %}
+                      {% endfor %}
+                          
+                          <details>
+                             <summary id="l">Location</summary>
+                             <p>{{H_shops.location_text}}</p>
+                          </details>
+                    </div>
+                       
+                    <div class="row3">
+                      <details> 
+                        <summary>Give ratings</summary>
+                          <form action="/CA_ratings" method="POST" enctype="multipart/form-data">
+                            <div class="form-group" >
+                               <input type="text" style="display: none;" value="{{H_shops.Shop_name}}" name="sname">
+                               <input type="range" id="rate"  name="Rating" min="0.5" max="5.5" value="5" oninput="this.nextElementSibling.value = this.value">
+                               <output>5</output>
+                            </div>
+                              <button type="submit" style="color: whitesmoke; background: linear-gradient( hsl(0, 100%, 70%),hsl(313, 100%, 60%));" class="btn">Submit</button> 
+                          </form> 
+                      </details>
+                      <div>
+                        <details>
+                          <summary>Contact InFo</summary>
+                          <h6>{{H_shops.contact_Info}}</h6>
+                        </details>
+                      </div>
+                      <div >
+                        <a href="{{H_shops.location_link}}">🗺️view Location</a>
+                      </div>
+                    </div>
+                 </div> 
+               </div>
+            </div>
+            {% endif %}
+          {% endif %}
+          {% endif %}
+  {% endfor %}
+
+
+  </div>
+</div>
+{% endblock %}

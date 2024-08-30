@@ -1,0 +1,1 @@
+from .routes import GGS_uploaded_file,GGS_details,GGS_rating_data,GGS_Ratings,GGS_shop_adding_page,GGS_shop_page,GGS_shop_template,GGS_shop_upload_page,GGS_Shops

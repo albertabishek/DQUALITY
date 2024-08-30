@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Page</title>
+   
+</head>
+<style>
+    
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1B32;
+}
+
+#btn{
+    position: absolute;
+    bottom: 200px;
+}
+
+a{
+    text-decoration: none;
+}
+span{
+   
+    background: linear-gradient( hsl(123, 79%, 57%),hsl(161, 100%, 60%));
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    color: whitesmoke;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 15px;
+    
+}
+ 
+     
+</style>
+<body>
+     
+    <a href="{{ url_for('Food_details.foods_template') }}" id="btn"><span>Welcome!</span></a>
+</body>
+</html>

@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %}
+  Foods List Page
+{% endblock %}
+
+
+{% block content %}
+<style> 
+   .in{
+    display: none;
+   }
+  
+   .gallery{
+    width: 300px;
+    margin-top: 25px;
+   }
+   .gallery img{
+    width: 300px;
+    height: 230px;
+    margin-top: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 5px 0px 15px rgb(69, 68, 68),
+               -4px 0px 15px rgb(59, 58, 58);
+   }
+
+  
+   
+
+  .btns{
+  width: 100%;
+  font-size: 23px;
+  font-family:  Verdana, sans-serif;
+  border: 2px solid #1E201F;
+  border-top: 0;
+  border-radius:10px;
+  border-top-left-radius:0 ;
+  border-top-right-radius:0 ;
+  color: aliceblue;
+  background-color: #050505;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  box-shadow: 5px 5px 15px rgb(59, 58, 58),-4px 0px 15px rgb(69, 68, 68);
+ }
+ .btns:hover{
+  color: aliceblue;
+  font-size: 25px;
+ }
+
+</style>
+
+
+ <div class="container" >
+       
+  <div class="row">
+    {% for food in files %}
+     {% if C1 %}
+      {% if C1==food.category_1 %}
+       
+        <div class="col-xs-4 col-sm-12 col-md-6 col-xl-4 " >
+           <center>
+            <div class="gallery"> 
+              <img src="{{ url_for('Food_details.F_uploaded_file', filename=food.filename)}}"/>
+              <div id="img_name">
+                <form  action="/food_shop_template" method="POST" enctype="multipart/form-data">
+                  <input type="text" class="in" name="Fname" value="{{food.link}}"> 
+                  <button type="submit" class="btns">{{food.name}}</button>
+                </form>
+              </div>
+            </div>
+          </center>   
+        </div>
+       
+      
+         {% elif C1==food.category_3 %}
+         
+         <div class="col-xs-4 col-sm-12 col-md-6 col-xl-4 " >
+          <center>
+           <div class="gallery"> 
+             <img src="{{ url_for('Food_details.F_uploaded_file', filename=food.filename)}}"/>
+             <div id="img_name">
+               <form  action="/food_shop_template" method="POST" enctype="multipart/form-data">
+                 <input type="text" class="in" name="Fname" value="{{food.link}}"> 
+                 <button type="submit" class="btns">{{food.name}}</button>
+               </form>
+             </div>
+           </div>
+         </center>   
+       </div>
+          {% endif %}
+          {% elif C2 %}
+          {% if C2==food.category_2 %}
+          <div class="col-xs-4 col-sm-12 col-md-6 col-xl-4 " >
+            <center>
+             <div class="gallery"> 
+               <img src="{{ url_for('Food_details.F_uploaded_file', filename=food.filename)}}"/>
+               <div id="img_name">
+                 <form  action="/food_shop_template" method="POST" enctype="multipart/form-data">
+                   <input type="text" class="in" name="Fname" value="{{food.link}}"> 
+                   <button type="submit" class="btns">{{food.name}}</button>
+                 </form>
+               </div>
+             </div>
+           </center>   
+         </div>
+
+         {% endif %}
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}

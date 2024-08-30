@@ -1,0 +1,1 @@
+from .routes import SM_uploaded_file,SM_details,SM_rating_data,SM_Ratings,SM_shop_adding_page,SM_shop_page,SM_shop_template,SM_shop_upload_page,SM_Shops

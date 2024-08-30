@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block title %}
+  Foods template Page
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+  
+  #V{
+    background-color: #2f3640;
+    color: #f5f6fa;
+    padding: 10px;
+    border: 2px solid  #4f4e4e;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px #4a4949;
+    font-family: "Roboto",sans-serif; 
+  }
+
+  #V1{
+    background-color: #2f3640;
+    color: #f5f6fa;
+    padding: 10px;
+    border: 2px solid #4f4e4e;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px #4a4949;
+    padding-right: 160px;
+    font-family: "Roboto",sans-serif; 
+  }
+
+  option{
+    background-color: #2f3640;
+    font-weight: 500;
+    font-family: "Roboto",sans-serif;  
+  }
+
+  .btns {
+    color: #090909;
+    padding:3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 6px #c5c5c5 , 0px -1px 5px #c5c5c5 ;
+  }
+
+  .btns:hover {
+   color: #666;
+   box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 3px #ffffff;
+  }  
+
+</style>
+
+
+<div style="margin-top: 15%; margin-bottom: 0.5rem;">
+    <form action="/foods_page" method="POST" enctype="multipart/form-data" style="text-align: center;"  >
+
+        <input type="text" value="f1" style="display: none;"  name="a" >
+
+        <div>
+            <label for="V"></label>
+            <select id="V" name="C1">
+                <option value="veg">Veg items</option>
+                <option value="non_veg">Non-Veg items</option>
+                {% for datas in data %}
+                      <option value="{{datas.category_value}}">{{datas.category}}</option>
+                {% endfor %}
+            </select> 
+        </div>
+  
+        <div style="padding-top: 12px; text-align: center;" >
+            <button class="btns" style="padding: 5px; border-radius: 8px; padding-left: 15px; padding-right: 15px;" type="submit">Search</button> 
+        </div>
+    </form>
+</div>
+
+    <hr style="border: 1px solid black;">
+
+<div style="margin-top: 3%; margin-bottom: 7rem;">
+    <form action="/foods_page" method="POST" enctype="multipart/form-data" style="text-align: center;">
+   
+        <input type="text" value="f2" style="display: none;"  name="a" >
+
+        <div>
+            <label for="V1"></label>
+            <select id="V1" name="C2">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="snacks">Snacks</option> 
+                <option value="dinner">Dinner</option>  
+            </select> 
+        </div>
+   
+        <div style="padding-top: 10px; text-align: center;" >
+            <button class="btns" style="padding: 5px; border-radius: 8px; padding-left: 15px; padding-right: 15px;" type="submit">Search</button> 
+        </div>
+    </form>
+</div>
+
+{% endblock %}

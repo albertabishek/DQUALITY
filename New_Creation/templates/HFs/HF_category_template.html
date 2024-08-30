@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}
+Category Selecting Page
+{% endblock %}
+
+
+{% block content %}
+<style>
+
+  #V1{
+    background-color: #2f3640;
+    color: #f5f6fa;
+    padding: 10px;
+    border: 2px solid #4f4e4e;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px #4a4949;
+    padding-right: 120px;
+    font-family: "Roboto",sans-serif; 
+  }
+
+  option{
+    background-color: #2f3640;
+    font-weight: 500;
+    font-family: "Roboto",sans-serif;  
+  }
+
+  .btns {
+    color: #090909;
+    padding:3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 6px #c5c5c5 , 0px -1px 5px #c5c5c5 ;
+  }
+
+  .btns:hover {
+   color: #666;
+   box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 3px #ffffff;
+  }  
+
+</style>
+
+
+<div  style="margin-top: 10rem; margin-bottom: 10rem; text-align: center;">
+<form action="/HF_shop_template" method="POST" enctype="multipart/form-data">
+   
+   
+    <label for="V1"></label>
+    <select id="V1" name="C">
+        <option value="furniture_store">Furniture Store</option>
+        <option value="home_decor_store">Home Decor Store</option>
+        <option value="kitchenware_store">Kitchenware Store</option>
+        <option value="bedding_store">Bedding Store</option>
+        <option value="lighting_store">Lighting Store</option>
+        <option value="carpet_and_rug_store">Carpet and Rug Store</option>
+        <option value="antique_store">Antique Store</option>
+        <option value="outdoor_furniture_store">Outdoor Furniture Store</option>
+        <option value="mattress_store">Mattress Store</option>
+        <option value="closet_and_storage_store">Closet and Storage Store</option>
+          
+    </select> 
+   
+  <div style="padding-top: 20px; text-align: center;">
+    <button class="btns" style="padding: 5px; border-radius: 8px; padding-left: 15px; padding-right: 15px;" type="submit">Search</button> 
+</div>
+</form>
+
+</div>
+{% endblock %}

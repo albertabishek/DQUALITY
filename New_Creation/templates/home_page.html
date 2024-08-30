@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+{% block title %}
+  Home Page
+{% endblock %}
+
+{% block content %}
+<style>
+ 
+  
+  .gallery{
+    width: 25em;  
+    display: inline-block;
+    border: 1px solid hsl(0, 0%, 60%);
+    border-radius: 10px;
+    margin: 25px; 
+    box-shadow: 4px 10px 20px rgb(133, 131, 131),
+               -4px 1px 15px rgb(145, 145, 145);
+    margin-top: 30px;
+   }
+ 
+  .gallery .Img{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    border-bottom-left-radius:0 ;
+    border-bottom-right-radius:0 ;
+    border: 2px solid #02112b;
+  }
+ 
+  @media screen and (max-width:770px){
+
+   .gallery .Img{
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #02112b;
+    border-bottom-left-radius:0 ;
+    border-bottom-right-radius:0 ;
+  }
+}
+  
+  @media screen and (max-width:451px){
+
+    .gallery {
+       width: 300px;
+       margin: 0px;
+       margin-top: 30px;
+       text-align: center; 
+    }
+
+    .gallery .Img{
+      height: 150px;
+    }
+    .gallery .btns{
+      font-size:medium;
+      height: 35px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    .gallery .btns:hover{
+      color: aliceblue;
+      font-size: large;
+     }
+   }
+
+
+ .btns{
+  width: 100%;
+  font-size: 23px;
+  font-family:  Verdana, sans-serif;
+  border: 2px solid #02112b;
+  border-top: 0;
+  border-radius:10px;
+  border-top-left-radius:0 ;
+  border-top-right-radius:0 ;
+  color: aliceblue;
+  background-color: #050505;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+ }
+ .btns:hover{
+  color: aliceblue;
+  font-size: 25px;
+ }
+
+ a{
+    text-decoration: none;
+    color: aliceblue;
+  }
+  a:hover{
+    text-decoration: none;
+    color: aliceblue;
+  }
+
+ 
+ 
+</style>
+
+ 
+<div style="text-align: center;margin-top: 15px; ">           
+        
+       <div class="gallery">
+          
+             <image src="{{ url_for('static', filename='foodsworld.jpg')}}" class="Img" >  
+          
+           
+            <a  href="{{ url_for('Food_details.foods_template') }}">
+            <button class="btns" >Foods</button>
+           </a>   
+           
+       </div>
+       
+
+       <div class="gallery">
+         
+           <image src="{{ url_for('static', filename='Health_and_beauty.jpg')}}" class="Img" >
+         
+         
+          <a href="{{url_for('HB_details.HB_category_template')}}">
+            <button class="btns" >Health and Beauty</button>
+            
+          </a> 
+          
+
+       </div>
+       
+
+       <div class="gallery">
+          
+            <image src="{{ url_for('static', filename='Clothing_and_accesories.jpeg')}}" class="Img">
+          
+          
+          <a  href="{{url_for('CA_details.CA_category_template')}}">
+            <button class="btns">Clothing and Accessories</button>
+            
+          </a> 
+          
+       
+        </div>
+        
+     
+       <div class="gallery">
+        
+           <image src="{{ url_for('static', filename='Technology_and_electronic.jpg')}}" class="Img" >
+         
+         
+          <a href="{{url_for('TE_details.TE_category_template')}}">
+            <button class="btns">Technology and Electronics</button>
+            
+          </a> 
+          
+        
+       </div>
+     
+
+       <div class="gallery">
+         
+         <image src="{{ url_for('static', filename='Books_and_entertainment.jpg')}}" class="Img" >
+         
+         
+          <a  href="{{url_for('BE_details.BE_category_template')}}">
+            <button class="btns">Books and Entertainment</button>
+            
+          </a> 
+         
+         
+       </div>
+
+
+       <div class="gallery">
+        
+           <image src="{{ url_for('static', filename='Home_and_furniture.jpeg')}}" class="Img" >  
+            
+         
+          <a  href="{{ url_for('HF_details.HF_category_template') }}">
+            <button class="btns">Home and Furniture</button>
+           
+          </a> 
+          
+         
+     </div>
+
+        
+     <div class="gallery">
+      
+         <image src="{{ url_for('static', filename='General_grocery_store.jpg')}}" class="Img" >  
+       
+      
+        <a  href="{{ url_for('GGS_details.GGS_category_template') }}">
+          <button class="btns">General Grocery Shops</button>
+          
+        </a> 
+        
+      
+   </div>
+    
+   <div class="gallery">
+     
+       <image src="{{ url_for('static', filename='General_and_specility_store.jpg')}}" class="Img" >  
+    
+     
+      <a  href="{{ url_for('GSS_details.GSS_category_template') }}">
+        <button class="btns">General and Specialty Stores</button>
+       
+      </a> 
+     
+     
+ </div>
+
+ <div class="gallery">
+   
+     <image src="{{ url_for('static', filename='Shopping_centers.jpeg')}}" class="Img" >  
+     
+   
+    <a  href="{{ url_for('SC_details.SC_category_template') }}">
+      <button class="btns">Shopping Centers</button>
+      
+    </a> 
+    
+   
+</div>
+
+<div class="gallery">
+  
+     <image src="{{ url_for('static', filename='services_and_miscellaneous.jpg')}}" class="Img" >  
+     
+  
+    <a  href="{{ url_for('SM_details.SM_category_template') }}">
+      <button class="btns">Services and Miscellaneous</button>
+      
+    </a> 
+    
+   
+</div>
+
+
+<div class="gallery">
+   
+     <image src="{{ url_for('static', filename='Tourist_attraction.jpg')}}" class="Img" >  
+     
+   
+    <a  href="{{ url_for('TA_details.TA_category_template') }}">
+      <button class="btns">Tourist Attractions</button>
+      
+    </a> 
+    
+   
+</div>
+
+<div class="gallery">
+  
+     <image src="{{ url_for('static', filename='Bus photo.jpg')}}" class="Img" >  
+     
+  
+    <a  href="#">
+      <button class="btns">Bus route tracking</button>
+       
+    </a> 
+    
+   
+</div>
+       
+</div> 
+     
+{% endblock %}

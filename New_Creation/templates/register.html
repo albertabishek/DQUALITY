@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}
+ Register Page
+{% endblock %}
+
+{% block content %}
+<style>
+    .subm{
+   background: linear-gradient( hsl(0, 100%, 70%),hsl(313, 100%, 60%));
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 25px;
+   font-weight: 100;
+   color: whitesmoke;
+   padding: 3px;
+   text-align: center;
+   padding-bottom: 8px;
+   padding-left: 20px;
+   padding-right: 20px;
+   border-radius: 15px;
+   
+}
+ 
+.b{
+    width: 80vmin; 
+    margin-top: 50px; 
+    background-color: azure; 
+    color: black; 
+    border-radius: 8px;
+    box-shadow: 4px 10px 20px rgb(133, 131, 131),
+                -4px 1px 15px rgb(145, 145, 145);
+    padding: 20px;
+}
+
+.bb{
+    width: 80vmin; 
+}
+</style>
+
+<center>
+<div id="dd">
+<div class="content-section b" >
+    <form method="POST" action=""  style="text-align: left;">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Join Today</legend>
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }}
+
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-control-label") }}
+                {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+
+        <div class="form-group" style="text-align:center;">
+            <span>{{ form.submit(class="subm") }}</span>
+        </div>
+    </form>
+</div>
+<div class="pt-3 bb" >
+    <small class="text-muted" style="font-size: 15px;"  >
+       <span> Already Have An Account? </span><a class="ml-2" style="color: rgb(106, 221, 182);font-weight: 1200px;" href="{{ url_for('main.login') }}">Sign In</a>
+    </small>
+</div>
+</div>
+</center>
+ 
+{% endblock %}
